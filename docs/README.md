@@ -1,36 +1,51 @@
+# 🩺 HealthLink — Community Health App for Coastal Kenya
 
-#🏥 HealthLink – Basic e-Clinic & Triage
-#📖 Introduction
+**HealthLink** is a community-focused digital health platform designed to empower individuals in **Kenya’s coastal region** with reliable, accessible, and locally relevant health information.  
+Built using the **MERN stack (MongoDB, Express.js, React.js, Node.js)** with **Tailwind CSS** and **PostCSS**, HealthLink delivers real-time, responsive, and user-friendly health services on both web and mobile.
 
-HealthLink is a simple digital health platform designed to support basic triage and e-clinic services, promoting Good Health and Well-Being (SDG 3).
-The system allows community members to check their symptoms, receive basic health guidance, and connect with health workers for further assistance.
+---
 
-Health workers and admins can monitor reported symptoms, manage patient records, and identify common health trends within communities — helping improve access to early care and disease surveillance.
+## 🌍 Project Overview
 
-🎯 Objectives
+The HealthLink app addresses key community health challenges such as:
+- Limited access to verified medical information  
+- Lack of early symptom awareness  
+- Low health literacy and prevention culture  
+- Gaps in sanitation and nutrition education  
 
-To provide a user-friendly online triage system for basic health screening.
+It combines **digital health promotion, disease prevention, and education** to create healthier communities.
 
-To improve access to primary healthcare information and advice.
+---
 
-To support data-driven health monitoring and community health awareness.
+## 🚀 Features
 
-⚙️ Tech Stack
+### 👨‍⚕️ Core Functionalities
+- **🏠 Home Page:** Displays current health advisories and announcements from local health authorities  
+- **💬 HealthLink Community Advisories:** Timely updates on disease outbreaks, sanitation alerts, and vaccination campaigns  
+- **🔍 Symptom Checker:** AI-assisted interface that helps users identify potential health conditions based on symptoms entered  
+- **💡 Health Tips:** Auto-rotating health and wellness suggestions (e.g., hygiene, nutrition, mental health)  
+- **📚 Health Information:** Educational articles on common tropical and infectious diseases, prevention, and treatment  
+- **📞 SMS/USSD Support (Offline Mode):** For communities without reliable internet access  
 
-Frontend: React.js + Tailwind CSS
+### 👨‍💻 Admin Dashboard
+- Create, edit, or remove advisories and educational posts  
+- Review user feedback and symptom trends  
+- Role-based authentication (Admin, Officer, User)  
 
-Backend: Node.js + Express.js
+---
 
-Database: MongoDB Atlas
+## 🧩 Tech Stack
 
-Authentication: JWT or session-based login
+| Layer | Technology | Purpose |
+|-------|-------------|----------|
+| **Frontend** | React.js + Tailwind CSS + PostCSS | Modern, responsive, mobile-first UI |
+| **Backend** | Node.js + Express.js | REST API & server logic |
+| **Database** | MongoDB | Stores health data, advisories, and users |
+| **Real-Time** | Socket.io | Instant updates and user notifications |
+| **Deployment** | Vercel / Render / Netlify | Cloud hosting and CI/CD |
+| **Version Control** | Git & GitHub | Code management and collaboration |
 
-🌍 SDG Alignment
+---
 
-SDG 3: Good Health & Well-Being – ensures access to health services and early detection.
+## 🧠 Folder Structure
 
-SDG 9: Industry, Innovation & Infrastructure – leverages digital tools for health access.
-
-🚀 Status
-
-Project under active development.
