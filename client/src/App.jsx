@@ -1,44 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
-import Reports from './pages/Reports';
-import MCH from './pages/MCH';
-import HealthLink from './pages/HealthLink';
-import SymptomCheckerPage from './pages/SymptomCheckerPage';
-import HealthTips from './pages/HealthTips';
-import HealthInfo from './pages/HealthInfo';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import { AuthProvider } from './context/AuthContext';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
+import Home from "./pages/Home.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import Facilities from "./pages/Facilities.jsx";
+import Reports from "./pages/Reports.jsx";
+import Education from "./pages/Education.jsx";
 
-function App() {
+const App = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/reports" element={<Reports />} />
-              <Route path="/mch" element={<MCH />} />
-              <Route path="/healthlink" element={<HealthLink />} />
-              <Route path="/symptom-checker" element={<SymptomCheckerPage />} />
-              <Route path="/health-tips" element={<HealthTips />} />
-              <Route path="/health-info" element={<HealthInfo />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
-    </AuthProvider>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow container mx-auto px-4 py-6">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/facilities" element={<Facilities />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/education" element={<Education />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
-}
+};
 
 export default App;
