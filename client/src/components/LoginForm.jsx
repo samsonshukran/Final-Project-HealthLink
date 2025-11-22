@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { authAPI } from '../services/api';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -9,49 +8,25 @@ const LoginForm = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-    // Clear error when user starts typing
-    if (error) setError('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setError('');
-
-    try {
-      // Validate form
-      if (!formData.email || !formData.password) {
-        throw new Error('Please fill in all fields');
-      }
-
-      // Call login API
-      const response = await authAPI.login(formData.email, formData.password);
-      
-      if (response.success) {
-        // Store token and user data
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('user', JSON.stringify(response.user));
-        
-        // Redirect to dashboard
-        navigate('/dashboard');
-      } else {
-        throw new Error(response.message || 'Login failed');
-      }
-    } catch (error) {
-      console.error('Login error:', error);
-      setError(error.response?.data?.message || error.message || 'Login failed. Please try again.');
-    } finally {
+    
+    // Your login logic here
+    console.log('Login attempt:', formData);
+    
+    // Simulate API call
+    setTimeout(() => {
       setIsLoading(false);
-    }
+    }, 2000);
   };
 
   return (
@@ -74,18 +49,9 @@ const LoginForm = () => {
 
         {/* Login Form */}
         <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6">
-          {/* Error Message */}
-          {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <div className="flex items-center">
-                <span className="text-red-500 mr-2">⚠️</span>
-                <p className="text-red-700 text-sm">{error}</p>
-              </div>
-            </div>
-          )}
-
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Email Section */}
+            
+            {/* Email Section with Distinct Border */}
             <div className="border-2 border-blue-200 rounded-xl p-4 bg-blue-50/30">
               <div className="flex items-center mb-3">
                 <div className="bg-blue-100 p-2 rounded-lg mr-3">
@@ -107,12 +73,11 @@ const LoginForm = () => {
                   placeholder="Enter your email address"
                   value={formData.email}
                   onChange={handleChange}
-                  disabled={isLoading}
                 />
               </div>
             </div>
 
-            {/* Password Section */}
+            {/* Password Section with Distinct Border */}
             <div className="border-2 border-purple-200 rounded-xl p-4 bg-purple-50/30">
               <div className="flex items-center mb-3">
                 <div className="bg-purple-100 p-2 rounded-lg mr-3">
@@ -135,13 +100,11 @@ const LoginForm = () => {
                     placeholder="Enter your password"
                     value={formData.password}
                     onChange={handleChange}
-                    disabled={isLoading}
                   />
                   <button
                     type="button"
                     className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-500 hover:text-gray-700"
                     onClick={() => setShowPassword(!showPassword)}
-                    disabled={isLoading}
                   >
                     <span className="text-lg">
                       {showPassword ? '🙈' : '👁️'}
@@ -156,7 +119,6 @@ const LoginForm = () => {
                   <input
                     type="checkbox"
                     className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
-                    disabled={isLoading}
                   />
                   <span className="text-sm text-gray-600">Remember me</span>
                 </label>

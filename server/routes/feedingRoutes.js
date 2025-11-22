@@ -1,20 +1,8 @@
 const express = require('express');
-const {
-  getFeedingData,
-  startFeedingSession,
-  endFeedingSession,
-  updateFeedingPreferences
-} = require('../controllers/feedingController');
-
-const { protect } = require('../middleware/authMiddleware');
-
 const router = express.Router();
 
-router.use(protect);
-
-router.get('/', getFeedingData);
-router.post('/start', startFeedingSession);
-router.put('/end/:sessionId', endFeedingSession);
-router.put('/preferences', updateFeedingPreferences);
+router.get('/', (req, res) => {
+  res.json({ message: 'Feeding routes working' });
+});
 
 module.exports = router;

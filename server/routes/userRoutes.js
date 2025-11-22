@@ -1,20 +1,8 @@
 const express = require('express');
-const {
-  getUsers,
-  getUser,
-  updateUser,
-  deleteUser
-} = require('../controllers/userController');
-
-const { protect, authorize } = require('../middleware/authMiddleware');
-
 const router = express.Router();
 
-router.use(protect);
-
-router.get('/', authorize('admin'), getUsers);
-router.get('/:id', getUser);
-router.put('/:id', updateUser);
-router.delete('/:id', authorize('admin'), deleteUser);
+router.get('/', (req, res) => {
+  res.json({ message: 'User routes working' });
+});
 
 module.exports = router;
